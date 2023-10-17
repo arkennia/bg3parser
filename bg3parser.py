@@ -24,10 +24,9 @@ def find_files(dirs: Iterator[tuple[str, list[str], list[str]]], extension: str,
 dirs = get_dirs("../Carian_Knights_Sword")
 files = find_files(dirs, ".lsx", [])
 
-x = files[0]
+x = files[4]
 
 tree: etree._ElementTree = etree.parse(x)
 root = tree.getroot()
 children = list(root)
-for element in root.iter("attribute"):
-    print(etree.tostring(element))
+print(etree.tostring(root.find(".//node[@id='Templates']")))
